@@ -90,10 +90,11 @@ public class DeathCertificateWriter
 	private List<String> getBookPages(PlayerDeathEvent event)
 	{
 		List<String> i = new ArrayList<String>();
+		String killer = getKiller(event);
 		
 		i.add(ChatColor.ITALIC + "" + ChatColor.UNDERLINE + ChatColor.BLUE + "Death Certificate:" + "\n"
 				+ ChatColor.DARK_BLUE + ChatColor.BOLD + event.getEntity().getName() + "\n" + ChatColor.RESET + "\n"
-				+ ChatColor.BLACK + ChatColor.ITALIC + "Killed by " + ChatColor.RESET + ChatColor.RED + getKiller(event) + "\n" + ChatColor.RESET + "\n"
+				+ ChatColor.BLACK + ChatColor.ITALIC + "Killed by " + ChatColor.RESET + ChatColor.RED +  (killer == null? " could not be determined." : (": " + killer)) + "\n" + ChatColor.RESET + "\n"
 				+ ChatColor.BLACK + ChatColor.ITALIC + "On " + ChatColor.RESET + ChatColor.BLUE + this.getDate() + "\n"
 				+ ChatColor.BLACK + ChatColor.ITALIC + "at " + ChatColor.RESET + ChatColor.DARK_BLUE + this.getTime());
 		
